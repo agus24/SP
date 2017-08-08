@@ -1,0 +1,1 @@
+ga ad akses

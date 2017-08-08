@@ -1,0 +1,67 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "hash": "75b80bcdc0ff5bac61035b050e005be0",
+    "content-hash": "8cdbd50b1877f7977023a2bbd81d783f",
+    "packages": [
+        {
+            "name": "nezamy/route",
+            "version": "v1.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nezamy/route.git",
+                "reference": "9cbcf8b9ec9fbe32b2e1ece6c0e4df228c366322"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://files.phpcomposer.com/files/nezamy/route/9cbcf8b9ec9fbe32b2e1ece6c0e4df228c366322.zip",
+                "reference": "9cbcf8b9ec9fbe32b2e1ece6c0e4df228c366322",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "System\\": "system"
+                },
+                "files": [
+                    "system/function.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mahmoud Elnezamy",
+                    "email": "mahmoud@nezamy.com",
+                    "homepage": "http://nezamy.com",
+                    "role": "Full Stack Web Developer"
+                }
+            ],
+            "description": "Route - Fast, flexible routing for PHP, enabling you to quickly and easily build RESTful web applications.",
+            "homepage": "https://nezamy.com/route",
+            "keywords": [
+                "api",
+                "justframework",
+                "restful",
+                "route"
+            ],
+            "time": "2017-02-13 11:06:18"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}
