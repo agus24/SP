@@ -10,10 +10,12 @@ class QueryBuilder
     private $orderby = '';
     private $table = '';
     private $join = '';
+    private $fetchMode;
 
     public function __construct($pdo)
     {
         $this->pdo = $pdo;
+        $this->fetchMode = \PDO::FETCH_CLASS;
     }
 
     public function get()
@@ -27,7 +29,7 @@ class QueryBuilder
             die($e->message());
         }
 
-        return $state->fetchAll(\PDO::FETCH_CLASS);
+        return $state->fetchAll($this->fetchMode);
     }
 
     public function select($field = '*')

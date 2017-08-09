@@ -4,7 +4,6 @@ namespace Core;
 
 use Core\Auth;
 use Core\Session;
-use System\Request;
 use System\Route;
 
 class App
@@ -37,13 +36,8 @@ class App
     {
         Session::map($_SESSION);
         static::$registry['auth'] = new Auth(Session::get('user'));
-        static::route();
-    }
 
-    private static function route()
-    {
-        $request = Request::instance();
-        $route = Route::instance($request);
+        $route = Route::instance(request());
         require "app/routes.php";
         $route->end();
     }

@@ -1,10 +1,16 @@
 <?php
 
 use Core\App;
+use System\Request;
 
 function dd($var)
 {
     die(var_dump($var));
+}
+
+function request()
+{
+    return $request = Request::instance();
 }
 
 function makeUrl($link)

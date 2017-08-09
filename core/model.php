@@ -16,6 +16,11 @@ class Model
         return $this;
     }
 
+    public static function instance()
+    {
+        return new static;
+    }
+
     public function all()
     {
         return $this->db->select()->get();
@@ -43,8 +48,8 @@ class Model
         $this->db->where($this->primaryKey,'=',$id)->delete();
     }
 
-    public function join()
+    public function join($table2,$field,$cond,$field2)
     {
-        return $this->db->join('table2','table1','=','table2.field');
+        return $this->db->join($table2,$field,$cond,$field2);
     }
 }

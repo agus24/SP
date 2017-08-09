@@ -9,6 +9,4 @@ use System\Route;
 require 'core/bootstrap.php';
 require 'core/helper.php';
 
-
 App::run();
-

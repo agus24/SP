@@ -21,4 +21,9 @@ class Controller
             }
         }
     }
+
+    protected function request($key)
+    {
+        return request()->body[$key];
+    }
 }

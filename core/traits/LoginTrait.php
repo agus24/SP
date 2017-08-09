@@ -13,7 +13,7 @@ trait LoginTrait
             if(password_verify($password,$user->password))
             {
                 auth()->login($user);
-                return redirect($this->redirectTo());
+                return redirect($this->redirectAfterLogin());
             }
         }
         return back();
@@ -22,7 +22,7 @@ trait LoginTrait
     public function logout()
     {
         auth()->logout();
-        return redirect('');
+        return redirect($this->redirectAfterLogout());
     }
 
     private function username()
@@ -30,8 +30,13 @@ trait LoginTrait
         return "username";
     }
 
-    private function redirectTo()
+    private function redirectAfterLogin()
     {
         return "user";
+    }
+
+    private function redirectAfterLogout()
+    {
+        return "";
     }
 }

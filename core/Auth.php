@@ -21,6 +21,11 @@ class Auth
         }
     }
 
+    public static function instance()
+    {
+        return new static;
+    }
+
     public function user()
     {
         return $this->user;
@@ -28,7 +33,7 @@ class Auth
 
     public function login($user)
     {
-        $_SESSION['user'] = $user;
+        Session::set('user',$user);
         $this->user = $user;
         $this->login = true;
         return $this;
@@ -43,6 +48,6 @@ class Auth
     {
         $this->login = false;
         $this->user = [];
-        session_destroy();
+        Session::flush('user');
     }
 }
