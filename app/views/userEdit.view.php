@@ -6,4 +6,4 @@
     <input type="submit">
     <a href="<?=previousUrl()?>"><input type="button" value="Back"></a>
 </form>
-<?php require('partials/footer.php'); ?>
+<?php require('partials/foot.php'); ?>

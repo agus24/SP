@@ -86,7 +86,7 @@ class Session
         }
         else
         {
-            session_unset($key);
+            unset($_SESSION[$key]);
         }
     }
 }

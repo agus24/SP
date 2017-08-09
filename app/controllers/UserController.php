@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Model\User;
 use Core\App;
 use Core\Controller;
+use Core\JavaScript;
 use Core\Session;
 use System\Request;
 
@@ -18,6 +19,7 @@ class UserController extends Controller
     public function index()
     {
         $users = User::instance()->all();
+        JavaScript::addJS(asset('js/app.js'));
         return view('user',compact('users'));
     }
 

@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'app_name' => "Micro",
     'database' => [
         'name' => 'micro_test',
         'username' => 'root',

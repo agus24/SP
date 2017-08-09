@@ -39,7 +39,7 @@ class Auth
      */
     public function user()
     {
-        return $this->user;
+        return $this->user['value'];
     }
 
     /**
@@ -62,6 +62,11 @@ class Auth
     public function guest()
     {
         return !$this->login;
+    }
+
+    public function routeAlias()
+    {
+        //
     }
 
     /**

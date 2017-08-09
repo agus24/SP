@@ -1,33 +1,62 @@
 <?php require('partials/head.php'); ?>
 <?php if(!auth()->guest()): ?>
-<table border="1px" width="100%">
-<thead>
-    <th>No.</th>
-    <th>Nama</th>
-    <th>Username</th>
-    <th>#</th>
-</thead>
-<tbody>
-<?php foreach ($users as $key => $user) : ?>
-    <tr>
-        <td><?= $key+1 ?>.</td>
-        <td><?= $user->name; ?></td>
-        <td><?= $user->username; ?></td>
-        <td>
-            <a href="<?= makeUrl('user/'.$user->id.'/edit') ?>"><button>Edit</button></a>
-            <a href="<?= makeUrl('user/'.$user->id.'/delete') ?>"><button>Delete</button></a>
-        </td>
-    </tr>
-<?php endforeach; ?>
-</tbody>
-</table>
-<?php endif; ?>
-
-<h1>User Your Name</h1>
-<form method="POST" action="<?=makeUrl('user')?>">
-    Name : <input name="name"></input><?= isset($error['name'])? $error['name'] : ''?><br>
-    Username : <input type="username" name="username"></input><br>
-    Password : <input type="password" name="password"></input><br>
-    <button type="submit">Submit</button>
-</form>
-<?php require('partials/footer.php'); ?>
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <div class="panel panel-default">
+                <div class="panel-heading">User</div>
+                <div class="panel-body">
+                    <table class="table table-responsive">
+                    <thead>
+                        <th>No.</th>
+                        <th>Nama</th>
+                        <th>Username</th>
+                        <th>#</th>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($users as $key => $user) : ?>
+                            <tr>
+                                <td><?= $key+1 ?>.</td>
+                                <td><?= $user->name; ?></td>
+                                <td><?= $user->username; ?></td>
+                                <td>
+                                    <a href="<?= makeUrl('user/'.$user->id.'/edit') ?>"><button class="btn btn-primary">Edit</button></a>
+                                    <a href="<?= makeUrl('user/'.$user->id.'/delete') ?>"><button class="btn btn-danger">Delete</button></a>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                    </table>
+                    <?php endif; ?>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading">Insert New User</div>
+                <div class="panel-body">
+                    <form method="POST" action="<?=makeUrl('user')?>">
+                        <div class="form-group">
+                            <label>Name</label>
+                            <input type="text" class="form-control" name="name">
+                        </div>
+                        <div class="form-group">
+                            <label>Username</label>
+                            <input type="text" class="form-control" name="username">
+                        </div>
+                        <div class="form-group">
+                            <label>Password</label>
+                            <input type="password" class="form-control" name="password">
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-primary" type="submit">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<?php require('partials/foot.php'); ?>
