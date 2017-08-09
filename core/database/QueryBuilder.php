@@ -1,5 +1,21 @@
 <?php
+/**
+ * Micro Framework - It's a PHP framework for Full Stack Web Developer
+ *
+ * @package     Micro Framework
+ * @copyright   2017 (c) Gustiawan Ouwawi
+ * @author      Gustiawan Ouwawi <agusx244@gmail.com>
+ * @license     http://www.opensource.org/licenses/mit-license.php MIT
+ */
 namespace Core\Database;
+
+/**
+ * Query Builder
+ *
+ * @package  Micro Framework
+ * @author  Gustiawan Ouwawi <agusx244@gmail.com>
+ *
+ */
 
 class QueryBuilder
 {
@@ -12,6 +28,10 @@ class QueryBuilder
     private $join = '';
     private $fetchMode;
 
+    /**
+     * konstruknya dpt dari connection class
+     * @param PDO $pdo
+     */
     public function __construct($pdo)
     {
         $this->pdo = $pdo;
