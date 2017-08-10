@@ -5,8 +5,8 @@ return [
     "session_time" => 120, // dalam menit
     'auth' => [
         "redirect" => [
-            "afterLogin" => "",
-            "afterLogout" => ""
+            "afterLogin" => "/home",
+            "afterLogout" => "/login"
         ]
     ],
     'database' => [

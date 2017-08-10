@@ -34,4 +34,9 @@ class LoginController extends Controller
         $user = new User;
         $user->logout();
     }
+
+    public function test()
+    {
+        echo 'a';
+    }
 }
