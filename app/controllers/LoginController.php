@@ -11,7 +11,7 @@ class LoginController extends Controller
     {
         if(!auth()->guest())
         {
-            redirect('user');
+            redirect(App::config('auth')['redirect']['afterLogin']);
         }
     }
 
