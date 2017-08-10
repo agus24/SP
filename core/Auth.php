@@ -7,6 +7,9 @@ class Auth
     private $user = [];
     private $login = false;
 
+    /**
+     * define the user from session
+     */
     public function __construct($user)
     {
         if($user == null)
@@ -21,28 +24,58 @@ class Auth
         }
     }
 
-    public function user()
+    /**
+     * buat ambil class lewat static
+     * @return classObj
+     */
+    public static function instance()
     {
-        return $this->user;
+        return new static;
     }
 
+    /**
+     * bwt ambil data user yg login
+     * @return Model user
+     */
+    public function user()
+    {
+        return $this->user['value'];
+    }
+
+    /**
+     * bwt paksa login
+     * @param  classObj $user
+     * @return classObj       Auth
+     */
     public function login($user)
     {
-        $_SESSION['user'] = $user;
+        Session::set('user',$user);
         $this->user = $user;
         $this->login = true;
         return $this;
     }
 
+    /**
+     * ngecek ini yg pake uda login ato belom
+     * @return bool
+     */
     public function guest()
     {
         return !$this->login;
     }
 
+    public function routeAlias()
+    {
+        //
+    }
+
+    /**
+     * bwt paksa logout
+     */
     public function logout()
     {
         $this->login = false;
         $this->user = [];
-        session_destroy();
+        Session::flush('user');
     }
 }

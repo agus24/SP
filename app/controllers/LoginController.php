@@ -7,6 +7,14 @@ use Core\Controller;
 
 class LoginController extends Controller
 {
+    public function __construct()
+    {
+        if(!auth()->guest())
+        {
+            redirect('user');
+        }
+    }
+
     public function index()
     {
         return view('login');

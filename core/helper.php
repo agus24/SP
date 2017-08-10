@@ -1,10 +1,17 @@
 <?php
 
 use Core\App;
+use Core\JavaScript;
+use System\Request;
 
 function dd($var)
 {
     die(var_dump($var));
+}
+
+function request()
+{
+    return $request = Request::instance();
 }
 
 function makeUrl($link)
@@ -72,4 +79,14 @@ function auth()
 function view_path($file)
 {
     return "app/views/{$file}.view.php";
+}
+
+function config($name)
+{
+    return App::get('config')[$name];
+}
+
+function script()
+{
+    return JavaScript::getScript();
 }
