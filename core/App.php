@@ -49,6 +49,11 @@ class App
         throw new Exception("Database Not Configured");
     }
 
+    public static function config($key)
+    {
+        return static::$registry['config'][$key];
+    }
+
     /**
      * session, route, request, auth di declare di sini
      */
@@ -56,6 +61,7 @@ class App
     {
         Session::map($_SESSION);
         static::bind('auth', new Auth(Session::get('user')));
+        Session::sessionCheck();
 
         $route = Route::instance(request());
         require "app/routes.php";

@@ -50,6 +50,7 @@ class Auth
     public function login($user)
     {
         Session::set('user',$user);
+        Session::set('logintime',time());
         $this->user = $user;
         $this->login = true;
         return $this;

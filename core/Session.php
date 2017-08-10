@@ -89,4 +89,15 @@ class Session
             unset($_SESSION[$key]);
         }
     }
+
+    public static function sessionCheck()
+    {
+        if(isset(static::$container['user']))
+        {
+            if(static::$container['logintime'] < time() - (App::get('config')['session_time'] * 60))
+            {
+                redirect('logout');
+            }
+        }
+    }
 }

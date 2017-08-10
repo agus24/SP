@@ -2,6 +2,8 @@
 
 namespace Core\Traits;
 
+use Core\App;
+
 trait LoginTrait
 {
     public function checkLogin($username,$password)
@@ -13,7 +15,7 @@ trait LoginTrait
             if(password_verify($password,$user->password))
             {
                 auth()->login($user);
-                return redirect($this->redirectAfterLogin());
+                return redirect(App::config('auth')['redirect']['afterLogin']);
             }
         }
         return back();
@@ -22,21 +24,11 @@ trait LoginTrait
     public function logout()
     {
         auth()->logout();
-        return redirect($this->redirectAfterLogout());
+        return redirect(App::config('auth')['redirect']['afterLogout']);
     }
 
     private function username()
     {
         return "username";
-    }
-
-    private function redirectAfterLogin()
-    {
-        return "user";
-    }
-
-    private function redirectAfterLogout()
-    {
-        return "";
     }
 }
