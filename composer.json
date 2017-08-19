@@ -6,6 +6,7 @@
         }
     },
     "require": {
-        "nezamy/route": "^1.0"
+        "nezamy/route": "^1.0",
+        "nesbot/carbon": "^1.22"
     }
 }

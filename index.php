@@ -1,6 +1,5 @@
 <?php
 error_reporting(0);
-use App\Core\Router;
 use Core\App;
 use Core\Session;
 use System\Request;

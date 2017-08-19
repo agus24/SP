@@ -3,15 +3,13 @@
 namespace Core;
 
 use Core\Session;
+use Core\Statics\MakeStatic;
 
 class JavaScript
 {
-    private static $javascript = [];
+    use MakeStatic;
 
-    public static function instance()
-    {
-        return new static;
-    }
+    private static $javascript = [];
 
     public static function addJS($js)
     {

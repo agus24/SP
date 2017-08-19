@@ -4,89 +4,130 @@ use Core\App;
 use Core\JavaScript;
 use System\Request;
 
-function dd($var)
+if(!function_exists('dd'))
 {
-    die(var_dump($var));
+    function dd($var)
+    {
+        die(var_dump($var));
+    }
 }
 
-function request()
+if(!function_exists('request'))
 {
-    return $request = Request::instance();
+    function request()
+    {
+        return $request = Request::instance();
+    }
 }
 
-function makeUrl($link)
+if(!function_exists('makeUrl'))
 {
-    $php = $_SERVER['PHP_SELF'];
-    $base = explode("index.php",$php)[0];
-    return
-            // $_SERVER['REQUEST_SCHEME'].
-            "http://".
-            $_SERVER['HTTP_HOST'].
-            $base.
-            $link
-            ;
+    function makeUrl($link)
+    {
+        $php = $_SERVER['PHP_SELF'];
+        $base = explode("index.php",$php)[0];
+        return
+                // $_SERVER['REQUEST_SCHEME'].
+                "http://".
+                $_SERVER['HTTP_HOST'].
+                $base.
+                $link
+                ;
+    }
 }
 
-function view($file,$variables = [])
+if(!function_exists('view'))
 {
-    extract($variables);
-    return require "app/views/{$file}.view.php";
+    function view($file,$variables = [])
+    {
+        extract($variables);
+        return require "app/views/{$file}.view.php";
+    }
 }
 
-function redirect($path)
+if(!function_exists('redirect'))
 {
-    $path = makeUrl($path);
-    header("location:{$path}");
+    function redirect($path)
+    {
+        $path = makeUrl($path);
+        header("location:{$path}");
+    }
 }
 
-function currentUrl()
+if(!function_exists('currentUrl'))
 {
-    $php = $_SERVER['PHP_SELF'];
-    $php = explode("index.php",$php)[0];
-    $uri = $_SERVER['REQUEST_URI'];
-    $uri = explode($php,$uri)[1];
-    $uri = trim(
-            parse_url($uri, PHP_URL_PATH), '/'
-        );
-    return makeUrl($uri);
+    function currentUrl()
+    {
+        $php = $_SERVER['PHP_SELF'];
+        $php = explode("index.php",$php)[0];
+        $uri = $_SERVER['REQUEST_URI'];
+        $uri = explode($php,$uri)[1];
+        $uri = trim(
+                parse_url($uri, PHP_URL_PATH), '/'
+            );
+        return makeUrl($uri);
+    }
+}
+if(!function_exists('previousUrl'))
+{
+    function previousUrl()
+    {
+        return $_SERVER['HTTP_REFERER'];
+    }
 }
 
-function previousUrl()
+if(!function_exists('back'))
 {
-    return $_SERVER['HTTP_REFERER'];
+    function back()
+    {
+        header('location:'.$_SERVER['HTTP_REFERER']);
+    }
 }
 
-function back()
+if(!function_exists('asset'))
 {
-    header('location:'.$_SERVER['HTTP_REFERER']);
+    function asset($asset)
+    {
+        return makeUrl('public/'.$asset);
+    }
 }
 
-function asset($asset)
+if(!function_exists('bcrypt'))
 {
-    return makeUrl('public/'.$asset);
+    function bcrypt($text)
+    {
+        return password_hash($text,PASSWORD_BCRYPT);
+    }
 }
 
-function bcrypt($text)
+if(!function_exists('auth'))
 {
-    return password_hash($text,PASSWORD_BCRYPT);
+    function auth()
+    {
+        return App::get('auth');
+    }
 }
 
-function auth()
+if(!function_exists('view_path'))
 {
-    return App::get('auth');
+    function view_path($file)
+    {
+        return "app/views/{$file}.view.php";
+    }
 }
 
-function view_path($file)
+if(!function_exists('config'))
 {
-    return "app/views/{$file}.view.php";
+    function config($name)
+    {
+        return App::get('config')[$name];
+    }
 }
 
-function config($name)
+if(!function_exists('script'))
 {
-    return App::get('config')[$name];
-}
-
-function script()
-{
-    return JavaScript::getScript();
+    function script()
+    {
+        return JavaScript::getScript();
+    }
 }

@@ -3,9 +3,11 @@
 namespace Core;
 
 use Core\App;
+use Core\Statics\MakeStatic;
 
 class Model
 {
+    use MakeStatic;
     public $lastID = NULL;
     protected $db;
     protected $primaryKey = 'id';
@@ -16,15 +18,6 @@ class Model
     public function __construct()
     {
         $this->db = App::database()->table($this->table);
-    }
-
-    /**
-     * bwt panggil ini class lewat static
-     * @return classObj
-     */
-    public static function instance()
-    {
-        return new static;
     }
 
     /**

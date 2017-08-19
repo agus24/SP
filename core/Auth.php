@@ -2,8 +2,11 @@
 
 namespace Core;
 
+use Core\Statics\MakeStatic;
+
 class Auth
 {
+    use MakeStatic;
     private $user = [];
     private $login = false;
 
@@ -22,15 +25,6 @@ class Auth
             $this->user = $user;
             $this->login = true;
         }
-    }
-
-    /**
-     * buat ambil class lewat static
-     * @return classObj
-     */
-    public static function instance()
-    {
-        return new static;
     }
 
     /**
