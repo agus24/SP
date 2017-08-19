@@ -3,8 +3,9 @@
 namespace Core;
 
 use Core\Auth;
+use Core\Route;
 use Core\Session;
-use System\Route;
+// use System\Route;
 
 /**
  * App Container Class For Booting And "Things" ?
@@ -71,9 +72,9 @@ class App
         Session::map($_SESSION);
         static::bind('auth', new Auth(Session::get('user')));
         Session::sessionCheck();
-
-        $route = Route::instance(request());
-        require "app/routes.php";
-        $route->end();
+        // Route::init();
+        // $route = Route::instance(request());
+        dd(require "app/routes.php");
+        // Route::run();
     }
 }

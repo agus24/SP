@@ -1,7 +1,14 @@
 <?php
 
-use Core\App;
+/*
+|--------------------------------------------------------------------------
+| Booting Framework dan Deklarasi Instance
+|--------------------------------------------------------------------------
+*/
+
 
 require 'core/bootstrap.php';
-require 'core/helper.php';
+
+use Core\App;
+
 App::run();
