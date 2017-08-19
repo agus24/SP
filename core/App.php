@@ -6,6 +6,10 @@ use Core\Auth;
 use Core\Session;
 use System\Route;
 
+/**
+ * App Container Class For Booting And "Things" ?
+ * maybe i can do a lot of improvement here (maybe)
+ */
 class App
 {
     /**
@@ -49,6 +53,11 @@ class App
         throw new Exception("Database Not Configured");
     }
 
+    /**
+     * get config
+     * @param  string $key
+     * @return any
+     */
     public static function config($key)
     {
         return static::$registry['config'][$key];

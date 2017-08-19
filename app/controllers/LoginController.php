@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Model\User;
+use Core\App;
 use Core\Controller;
 
 class LoginController extends Controller

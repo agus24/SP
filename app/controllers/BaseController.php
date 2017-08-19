@@ -9,6 +9,7 @@ class BaseController extends Controller
 {
     public function index()
     {
-        $user = User::instance()->all();
+        $user = User::instance()->find(1)->get();
+        // dd($user);
     }
 }
