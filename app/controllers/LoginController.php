@@ -7,6 +7,14 @@ use Core\Controller;
 
 class LoginController extends Controller
 {
+    public function __construct()
+    {
+        if(!auth()->guest())
+        {
+            redirect(App::config('auth')['redirect']['afterLogin']);
+        }
+    }
+
     public function index()
     {
         return view('login');
@@ -25,5 +33,10 @@ class LoginController extends Controller
     {
         $user = new User;
         $user->logout();
+    }
+
+    public function test()
+    {
+        echo 'a';
     }
 }

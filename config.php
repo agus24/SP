@@ -1,6 +1,14 @@
 <?php
 
 return [
+    'app_name' => "Micro",
+    "session_time" => 120, // dalam menit
+    'auth' => [
+        "redirect" => [
+            "afterLogin" => "/home",
+            "afterLogout" => "/login"
+        ]
+    ],
     'database' => [
         'name' => 'micro_test',
         'username' => 'root',

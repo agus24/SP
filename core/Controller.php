@@ -6,6 +6,10 @@ use Core\App;
 
 class Controller
 {
+    /**
+     * ngecek dia uda login ato belom untuk di controller
+     * @return view cuma kalo error
+     */
     protected function login()
     {
         if(App::get('auth')->guest())
@@ -20,5 +24,15 @@ class Controller
                 die('you dont have access to this page.');
             }
         }
+    }
+
+    /**
+     * request mapping
+     * @param  string $key
+     * @return any
+     */
+    protected function request($key)
+    {
+        return request()->body[$key];
     }
 }
