@@ -72,9 +72,8 @@ class App
         Session::map($_SESSION);
         static::bind('auth', new Auth(Session::get('user')));
         Session::sessionCheck();
-        // Route::init();
-        // $route = Route::instance(request());
-        dd(require "app/routes.php");
-        // Route::run();
+        Route::init();
+        require "app/routes.php";
+        Route::run();
     }
 }

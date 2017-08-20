@@ -1,12 +1,9 @@
 <?php
 
 use Core\Route;
-Route::init();
 
 Route::get('', '\App\Controllers\LoginController@index');
-
-Route::run();
-// $route->get('/login', '\App\Controllers\LoginController@index');
-// $route->post('/login', '\App\Controllers\LoginController@login');
-// $route->get('/logout', '\App\Controllers\LoginController@logout');
-// $route->get('/test', '\App\Controllers\BaseController@index');
+Route::get('/login', '\App\Controllers\LoginController@index');
+Route::post('/login', '\App\Controllers\LoginController@login');
+Route::get('/logout', '\App\Controllers\LoginController@logout');
+Route::get('/test', '\App\Controllers\BaseController@index');

@@ -40,6 +40,6 @@ class Route
 
     public static function run()
     {
-        self::$route->end();
+        return self::$route->end();
     }
 }
