@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Model\User;
 use Core\App;
 use Core\Controller;
+use Core\View;
 
 class LoginController extends Controller
 {

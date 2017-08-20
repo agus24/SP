@@ -2,6 +2,7 @@
 
 use Core\App;
 use Core\JavaScript;
+use Core\View\View;
 use System\Request;
 
 if(!function_exists('dd'))
@@ -40,6 +41,7 @@ if(!function_exists('view'))
 {
     function view($file,$variables = [])
     {
+        return View::make($file)->share($variables)->render();
         extract($variables);
         return require "app/views/{$file}.view.php";
     }
