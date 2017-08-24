@@ -31,14 +31,4 @@ trait LoginTrait
     {
         return "username";
     }
-
-    private function redirectAfterLogin()
-    {
-        return "user";
-    }
-
-    private function redirectAfterLogout()
-    {
-        return "";
-    }
 }

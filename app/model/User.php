@@ -11,19 +11,4 @@ class User extends Model
 
     protected $table = 'user';
     protected $primaryKey = 'id';
-
-    private function username()
-    {
-        return "username";
-    }
-
-    private function redirectAfterLogin()
-    {
-        return "user";
-    }
-
-    private function redirectAfterLogout()
-    {
-        return "";
-    }
 }

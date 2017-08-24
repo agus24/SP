@@ -11,6 +11,7 @@ class ViewProvider implements Provider
      */
     public function boot()
     {
-        view()->use('partials/layout')->make('nav','partials/nav');
+        view()->use('partials/layout')
+            ->make('nav','partials/nav');
     }
 }
