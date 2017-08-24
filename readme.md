@@ -1,6 +1,6 @@
 # SPX Framework
 
-## Tentang Micro
+## Tentang SPX
 SPX adalah sebuah Framework yang mengunggulkan syntax yang simple dan kebebasan dalam perubahan inti.
 
 ## Cara Install
