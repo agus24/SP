@@ -5,8 +5,8 @@ namespace Core\Database;
 class Connection
 {
     /**
-     * gw buat pisah biar bisa pake 2 koneksi ato lebih nantinya
-     * @param  array $config config dari file config.php
+     * Untuk mendefinisikan koneksi
+     * @param  array $config
      * @return PDO
      */
     public static function make($config)

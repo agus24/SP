@@ -1,9 +1,19 @@
 <?php
+/**
+ * Session - Manajemen session yang berjalan.
+ *
+ * @author Gustiawan Ouwawi - agusx244@gmail.com
+ * @version 1.0
+ */
 
 namespace Core;
 
 class Session
 {
+    /**
+     * List Session yang ada
+     * @var array
+     */
     protected static $container = [];
 
     /**
@@ -24,7 +34,7 @@ class Session
     }
 
     /**
-     * bwt ambil semua data di container, biasanya gw pake bwt debug, tp gtw dah yg laen mw pake gmn
+     * Untuk mengambil semua data di container biasanya digunakan untuk debug
      * @return array list container
      */
     public static function getList()
@@ -33,10 +43,10 @@ class Session
     }
 
     /**
-     * bwt ngisi valuenya coeg
-     * @param string  $key   key emg harus string :)
-     * @param any  $value isinya bisa bebas kok :)
-     * @param boolean $flash default false gunanya klo true jadinya session cuma bisa di pake 1x doang
+     * Untuk mengisi value di container
+     * @param string  $key
+     * @param any  $value
+     * @param boolean $flash
      */
     public static function set($key,$value,$flash = false)
     {
@@ -44,7 +54,7 @@ class Session
     }
 
     /**
-     * ini bwt flashnya gw gtw knp gw buat misah pdhl pake fungsi set jg bisa -_-
+     * Untuk melakukan Flash pada session
      * @param  string $key   key emg harus string :)
      * @param  any $value isinya bisa bebas kok
      */
@@ -54,7 +64,7 @@ class Session
     }
 
     /**
-     * bwt mapping dari session di php bwt di taro di container class ini lalu di remap skalian apus yg flash data
+     * Untuk mapping Session dan menghapus Flash session
      * @param  array $arr session php
      */
     public static function map($arr)
@@ -75,8 +85,8 @@ class Session
     }
 
     /**
-     * bwt session destroy ini. pdhl pake session biasa jg bisa. gw cuma gtw aja knp gw buat ini tp yasudahlah
-     * @param  string $key biasanya sih emg string tp kadang ada yg integer. sesuka org yg pake aja nanti
+     * Untuk menghapus session, bila $key null maka akan menghapus semua session
+     * @param  string $key
      */
     public static function flush($key = null)
     {
@@ -90,6 +100,11 @@ class Session
         }
     }
 
+    /**
+     * Untuk melakukan cek pada session jika session sudah kadaluarsa maka akan dipaksa logout
+     * dan menghapus session tersebut
+     * @return [type] [description]
+     */
     public static function sessionCheck()
     {
         if(isset(static::$container['user']))

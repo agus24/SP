@@ -1,10 +1,19 @@
 <?php
+/**
+ * Helper - Fungsi-fungsi global yang dapat digunakan di semua modul.
+ *
+ * @author Gustiawan Ouwawi - agusx244@gmail.com
+ * @version 1.0
+ */
 
 use Core\App;
 use Core\JavaScript;
 use Core\View\View;
 use System\Request;
 
+/**
+ * Untuk melakukan Extract variable dan menghentikan aplikasi yang berjalan.
+ */
 if(!function_exists('dd'))
 {
     function dd($var)
@@ -13,6 +22,9 @@ if(!function_exists('dd'))
     }
 }
 
+/**
+ * Untuk mengambil request yang dikirimkan oleh user.
+ */
 if(!function_exists('request'))
 {
     function request()
@@ -21,6 +33,9 @@ if(!function_exists('request'))
     }
 }
 
+/**
+ * Untuk membuat URL menuju ke page tertentu.
+ */
 if(!function_exists('makeUrl'))
 {
     function makeUrl($link)
@@ -37,14 +52,20 @@ if(!function_exists('makeUrl'))
     }
 }
 
+/**
+ * Alias untuk App::view().
+ */
 if(!function_exists('view'))
 {
     function view()
     {
-        return App::get('view');
+        return App::view();
     }
 }
 
+/**
+ * Untuk meload view tertentu.
+ */
 if(!function_exists('section'))
 {
     function section($__nav)
@@ -54,6 +75,9 @@ if(!function_exists('section'))
     }
 }
 
+/**
+ * untuk mengarahkan ke url tertentu.
+ */
 if(!function_exists('redirect'))
 {
     function redirect($path)
@@ -63,6 +87,9 @@ if(!function_exists('redirect'))
     }
 }
 
+/**
+ * Untuk mendapatkan url saat ini.
+ */
 if(!function_exists('currentUrl'))
 {
     function currentUrl()
@@ -77,6 +104,10 @@ if(!function_exists('currentUrl'))
         return makeUrl($uri);
     }
 }
+
+/**
+ * Untuk mendapatkan url sebelumnya.
+ */
 if(!function_exists('previousUrl'))
 {
     function previousUrl()
@@ -85,6 +116,9 @@ if(!function_exists('previousUrl'))
     }
 }
 
+/**
+ * untuk mengarahkan ke halaman sebelumnya.
+ */
 if(!function_exists('back'))
 {
     function back()
@@ -93,6 +127,9 @@ if(!function_exists('back'))
     }
 }
 
+/**
+ * Untuk meload kosmetik page atau gambar.
+ */
 if(!function_exists('asset'))
 {
     function asset($asset)
@@ -101,6 +138,9 @@ if(!function_exists('asset'))
     }
 }
 
+/**
+ * Untuk melakukan enkripsi bcrypt dengan salt.
+ */
 if(!function_exists('bcrypt'))
 {
     function bcrypt($text)
@@ -109,6 +149,9 @@ if(!function_exists('bcrypt'))
     }
 }
 
+/**
+ * Allias untuk App::get('auth').
+ */
 if(!function_exists('auth'))
 {
     function auth()
@@ -117,6 +160,9 @@ if(!function_exists('auth'))
     }
 }
 
+/**
+ * untuk mendapatkan path view tertentu.
+ */
 if(!function_exists('view_path'))
 {
     function view_path($file)
@@ -125,6 +171,9 @@ if(!function_exists('view_path'))
     }
 }
 
+/**
+ * Allias untuk App::config().
+ */
 if(!function_exists('config'))
 {
     function config($name)
@@ -133,6 +182,9 @@ if(!function_exists('config'))
     }
 }
 
+/**
+ * untuk menjalankan script php yang telah di definisi.
+ */
 if(!function_exists('script'))
 {
     function script()

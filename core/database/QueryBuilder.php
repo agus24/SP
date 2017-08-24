@@ -1,8 +1,8 @@
 <?php
 /**
- * Micro Framework - It's a PHP framework for Full Stack Web Developer
+ * SPX Framework - It's a PHP framework for Full Stack Web Developer
  *
- * @package     Micro Framework
+ * @package     SPX Framework
  * @copyright   2017 (c) Gustiawan Ouwawi
  * @author      Gustiawan Ouwawi <agusx244@gmail.com>
  * @license     http://www.opensource.org/licenses/mit-license.php MIT
@@ -13,7 +13,7 @@ namespace Core\Database;
 /**
  * Query Builder
  *
- * @package  Micro Framework
+ * @package  SPX Framework
  * @author  Gustiawan Ouwawi <agusx244@gmail.com>
  *
  */
@@ -21,49 +21,49 @@ namespace Core\Database;
 class QueryBuilder
 {
     /**
-     * Class PDO yg uda ada koneksinya
+     * Variabel untuk menampung class PDO
      * @var object
      */
     protected $pdo;
 
     /**
-     * kondisi bwt di where nanti
+     * Variabel untuk where
      * @var string
      */
     private $condition = '';
 
     /**
-     * ini isi query full
+     * Variabel yang menampung query yang sudah di buat.
      * @var string
      */
     private $statement = '';
 
     /**
-     * query bwt di groupby
+     * Variabel untuk groupby
      * @var string
      */
     private $groupby = '';
 
     /**
-     * query bwt di orderby
+     * Variabel untuk orderby
      * @var string
      */
     private $orderby = '';
 
     /**
-     * bwt nama table
+     * Variabel untuk nama table
      * @var string
      */
     private $table = '';
 
     /**
-     * bwt join
+     * Variabel untuk Join
      * @var string
      */
     private $join = '';
 
     /**
-     * fetchmode bwt pdonya defaultnya gw set fetch class
+     * Variabel untuk opsi pada PDO
      * @var PDO Fetch
      */
     private $fetchMode;

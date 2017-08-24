@@ -1,4 +1,10 @@
 <?php
+/**
+ * Auth - Untuk memanajemen authentikasi user.
+ *
+ * @author Gustiawan Ouwawi - agusx244@gmail.com
+ * @version 1.0
+ */
 
 namespace Core;
 
@@ -6,12 +12,25 @@ use Core\Statics\MakeStatic;
 
 class Auth
 {
+    /**
+     * Untuk membuat class Static
+     */
     use MakeStatic;
+
+    /**
+     * List Data User
+     * @var array
+     */
     private $user = [];
+
+    /**
+     * Flag yang menandakan login atau tidak
+     * @var boolean
+     */
     private $login = false;
 
     /**
-     * define the user from session
+     * Deklarasi User List
      */
     public function __construct($user)
     {
@@ -28,7 +47,7 @@ class Auth
     }
 
     /**
-     * bwt ambil data user yg login
+     * Untuk mengambil data user yg login
      * @return Model user
      */
     public function user()
@@ -37,7 +56,7 @@ class Auth
     }
 
     /**
-     * bwt paksa login
+     * Untuk memaksa authentikasi user
      * @param  classObj $user
      * @return classObj       Auth
      */
@@ -51,7 +70,7 @@ class Auth
     }
 
     /**
-     * ngecek ini yg pake uda login ato belom
+     * Untuk mengecek apakah user belum login
      * @return bool
      */
     public function guest()
@@ -59,13 +78,8 @@ class Auth
         return !$this->login;
     }
 
-    public function routeAlias()
-    {
-        //
-    }
-
     /**
-     * bwt paksa logout
+     * Untuk melakukan logout
      */
     public function logout()
     {

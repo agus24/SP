@@ -1,4 +1,10 @@
 <?php
+/**
+ * App - Box untuk menyimpan applikasi yang ada.
+ *
+ * @author Gustiawan Ouwawi - agusx244@gmail.com
+ * @version 1.0
+ */
 
 namespace Core;
 
@@ -6,21 +12,17 @@ use Core\Auth;
 use Core\Interfaces\Provider;
 use Core\Route;
 use Core\Session;
-// use System\Route;
 
-/**
- * App Container Class For Booting And "Things" ?
- * maybe i can do a lot of improvement here (maybe)
- */
 class App
 {
     /**
+     * variabel box yang akan diisi.
      * @var array
      */
     protected static $registry = [];
 
     /**
-     * masukin key sama value ke registry
+     * untuk mengisi variabel registry
      * @param  string $key
      * @param  any $value
      */
@@ -30,7 +32,7 @@ class App
     }
 
     /**
-     * ambil data dari registry sesuai key
+     * untuk mengambil data dari registry
      * @param  string $key
      * @return any
      */
@@ -45,7 +47,7 @@ class App
     }
 
     /**
-     * ambil databasenya
+     * Untuk mengambil registry database
      * @return QueryBuilder
      */
     public static function database()
@@ -56,7 +58,7 @@ class App
     }
 
     /**
-     * get config
+     * Untuk mengambil registry config
      * @param  string $key
      * @return any
      */
@@ -66,7 +68,7 @@ class App
     }
 
     /**
-     * session, route, request, auth di declare di sini
+     * untuk menjalankan aplikasi
      */
     public static function run()
     {
@@ -78,13 +80,17 @@ class App
         Route::run();
     }
 
+    /**
+     * Untuk Menjalankan Provider
+     * @param  Provider $provider
+     */
     public static function provider(Provider $provider)
     {
         $provider->boot();
     }
 
     /**
-     * get View Instance
+     * Untuk mengambil registry view
      * @return View
      */
     public static function view()

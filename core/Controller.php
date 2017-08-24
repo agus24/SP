@@ -1,4 +1,10 @@
 <?php
+/**
+ * Controller - Base Controller untuk framework.
+ *
+ * @author Gustiawan Ouwawi - agusx244@gmail.com
+ * @version 1.0
+ */
 
 namespace Core;
 
@@ -7,7 +13,7 @@ use Core\App;
 class Controller
 {
     /**
-     * ngecek dia uda login ato belom untuk di controller
+     * Melakukan pengecekan terhadap user
      * @return view cuma kalo error
      */
     protected function login()
@@ -27,7 +33,7 @@ class Controller
     }
 
     /**
-     * request mapping
+     * Melakukan mapping terhadap request
      * @param  string $key
      * @return any
      */
