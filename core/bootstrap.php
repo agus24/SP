@@ -7,10 +7,11 @@
  */
 
 use Core\App;
-use Core\Session;
 use Core\Auth;
-use Core\Database\QueryBuilder;
 use Core\Database\Connection;
+use Core\Database\QueryBuilder;
+use Core\Session;
+use Core\View\View;
 
 //--------------------------------------------------------------------------
 // Set PHP Error Reporting Options
@@ -44,3 +45,7 @@ App::bind('config', require 'config.php');
 App::bind('database', new QueryBuilder(
     Connection::make(App::get('config')['database'])
 ));
+
+App::bind('view', View::instance());
+
+require "app\provider.php";

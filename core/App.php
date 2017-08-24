@@ -3,6 +3,7 @@
 namespace Core;
 
 use Core\Auth;
+use Core\Interfaces\Provider;
 use Core\Route;
 use Core\Session;
 // use System\Route;
@@ -75,5 +76,19 @@ class App
         Route::init();
         require "app/routes.php";
         Route::run();
+    }
+
+    public static function provider(Provider $provider)
+    {
+        $provider->boot();
+    }
+
+    /**
+     * get View Instance
+     * @return View
+     */
+    public static function view()
+    {
+        return static::$registry['view'];
     }
 }

@@ -39,11 +39,18 @@ if(!function_exists('makeUrl'))
 
 if(!function_exists('view'))
 {
-    function view($file,$variables = [])
+    function view()
     {
-        return View::make($file)->share($variables)->render();
-        extract($variables);
-        return require "app/views/{$file}.view.php";
+        return App::get('view');
+    }
+}
+
+if(!function_exists('section'))
+{
+    function section($__nav)
+    {
+        extract(view()->getVariables());
+        return require "app/views/{$__nav}.view.php";
     }
 }
 

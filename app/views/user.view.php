@@ -1,4 +1,3 @@
-<?php require('partials/head.php'); ?>
 <?php if(!auth()->guest()): ?>
 <div class="container">
     <div class="row">
@@ -59,4 +58,3 @@
         </div>
     </div>
 </div>
-<?php require('partials/foot.php'); ?>

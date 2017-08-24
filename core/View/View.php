@@ -2,57 +2,43 @@
 
 namespace Core\View;
 
-use Core\View\ViewRender;
-
 class View
 {
-    public $path;
-    public $vars;
+    private $base;
+    private $view;
+    private $variables = [];
 
     public static function instance()
     {
         return new self;
     }
 
-    public static function make($path)
+    public function use($base)
     {
-        $class = self::instance();
-        $class->path = $path;
-        return $class;
+        $this->base = $base;
+        return $this;
     }
 
-    public function share($vars)
+    public function make($name,$view)
     {
-        $this->vars = $vars;
+        $this->view[$name] = $view;
         return $this;
+    }
+
+    public function share($key,$variable)
+    {
+        $this->variables[$key] = $variable;
+        return $this;
+    }
+
+    public function getVariables()
+    {
+        return $this->variables;
     }
 
     public function render()
     {
-        echo $this->filterView();
-    }
-
-    public function filterView()
-    {
-        $files = file_get_contents("app/views/{$this->path}.tpl");
-        if(preg_match("(@section\(['\"][^\s]+)", $files,$section))
-        {
-            $section = ViewRender::filterSection($section);
-        }
-
-        if(preg_match("(@use\(['\"][^\s]+)", $files,$use))
-        {
-            $use_path = ViewRender::filterUse($use);
-            $use_content = file_get_contents("app/views/{$use_path}");
-            $files = preg_replace("({$use[0]})",$use_content,$files);
-        }
-
-        if(preg_match("(@ext\(['\"][^\s]+)", $files,$ext))
-        {
-            // dd(ViewRender::filterExt($ext));
-            (new $this)->make(ViewRender::filterExt($ext))->render();
-        }
-
-        return $files;
+        extract($this->view);
+        return require "app/views/{$this->base}.view.php";
     }
 }
