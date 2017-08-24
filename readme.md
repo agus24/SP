@@ -1,7 +1,7 @@
-# Micro Framework
+# SPX Framework
 
 ## Tentang Micro
-Micro adalah sebuah Framework yang mengunggulkan syntax yang simple dan kebebasan dalam perubahan inti.
+SPX adalah sebuah Framework yang mengunggulkan syntax yang simple dan kebebasan dalam perubahan inti.
 
 ## Cara Install
 - Download dan Install composer ([https://getcomposer.org/download/](https://getcomposer.org/download/))
