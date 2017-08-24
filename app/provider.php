@@ -1,10 +1,10 @@
 <?php
-
-namespace App;
-
-use Core\App;
-
 /**
- * register provider
+ * untuk registrasi provider
+ * Provider Adalah Service yang akan dijalankan di setiap modul dan setiap provider yang terregistrasi
+ * akan di jalankan sebelum applikasi booting.
  */
-App::provider(new Provider\ViewProvider);
+
+return [
+    "ViewProvider"
+];

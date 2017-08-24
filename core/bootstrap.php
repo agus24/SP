@@ -1,6 +1,6 @@
 <?php
 /**
- * Boot Handler - jalanin boot aplikasi.
+ * Bootstrap - untuk menjalankan aplikasi.
  *
  * @author Gustiawan Ouwawi - agusx244@gmail.com
  * @version 1.0
@@ -19,33 +19,44 @@ use Core\View\View;
 error_reporting(0);
 
 //--------------------------------------------------------------------------
-// Deklarasi Session
+// Menjalankan Session
 //--------------------------------------------------------------------------
 session_start();
 session_cache_limiter('');
 
 //--------------------------------------------------------------------------
-// Load the Composer Autoloader
+// Memanggil Autoloader
 //--------------------------------------------------------------------------
 require 'vendor/autoload.php';
 
 //--------------------------------------------------------------------------
-// Load the Error Handler
+// Memanggil Error Handler
 //--------------------------------------------------------------------------
 require "core/handler/Error.php";
 
 //--------------------------------------------------------------------------
-// Load the Helper
+// Memanggil Helper
 //--------------------------------------------------------------------------
 require 'core/helper.php';
 
-
+//--------------------------------------------------------------------------
+// Registrasi Config
+//--------------------------------------------------------------------------
 App::bind('config', require 'config.php');
 
+//--------------------------------------------------------------------------
+// Registrasi Database
+//--------------------------------------------------------------------------
 App::bind('database', new QueryBuilder(
     Connection::make(App::get('config')['database'])
 ));
 
+//--------------------------------------------------------------------------
+// Registrasi View
+//--------------------------------------------------------------------------
 App::bind('view', View::instance());
 
-require "app\provider.php";
+//--------------------------------------------------------------------------
+// Menjalankan Service Provider
+//--------------------------------------------------------------------------
+require "core\Provider.php";
