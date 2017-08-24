@@ -9,14 +9,21 @@
 namespace Core;
 
 use Core\App;
-/**
- * Melakukan pengambilan data dari file provider
- * @var [type]
- */
-$providerList = require 'app/provider.php';
 
-foreach($providerList as $provider)
+class Provider
 {
-    $prov = "\\App\\Provider\\".$provider;
-    App::provider(new $prov); //Menjalankan provider
+    public static $providers;
+
+    public static function init($provider)
+    {
+        static::$providers = $provider;
+    }
+
+    public static function boot()
+    {
+        foreach(static::$providers as $provider)
+        {
+            App::provider(new $provider);
+        }
+    }
 }

@@ -10,6 +10,7 @@ use Core\App;
 use Core\Auth;
 use Core\Database\Connection;
 use Core\Database\QueryBuilder;
+use Core\Provider;
 use Core\Session;
 use Core\View\View;
 
@@ -59,4 +60,5 @@ App::bind('view', View::instance());
 //--------------------------------------------------------------------------
 // Menjalankan Service Provider
 //--------------------------------------------------------------------------
-require "core\Provider.php";
+Provider::init(require 'app/provider.php');
+Provider::boot();
