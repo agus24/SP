@@ -1,7 +1,11 @@
 <?php
 
-$route->get('', '\App\Controllers\LoginController@index');
-$route->get('/login', '\App\Controllers\LoginController@index');
-$route->post('/login', '\App\Controllers\LoginController@login');
-$route->get('/logout', '\App\Controllers\LoginController@logout');
-$route->get('/test', '\App\Controllers\BaseController@index');
+use Core\Route;
+
+Route::get('', '\App\Controllers\LoginController@index');
+Route::get('/login', '\App\Controllers\LoginController@index');
+Route::post('/login', '\App\Controllers\LoginController@login');
+Route::get('/logout', '\App\Controllers\LoginController@logout');
+
+Route::get('/user', '\App\Controllers\BaseController@index');
+Route::get('/user/{id}/edit', '\App\Controllers\BaseController@edit');

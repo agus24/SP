@@ -6,4 +6,9 @@
     <link rel="stylesheet" type="text/css" href="<?=asset('css/app.css')?>">
 </head>
 <body>
-<?php require('nav.php'); ?>
+<?=section(${'nav'});?>
+<?=section(${'content'});?>
+<script src="<?=asset('js/app.js')?>"></script>
+<?=script();?>
+</body>
+</html>

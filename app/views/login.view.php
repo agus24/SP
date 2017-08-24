@@ -1,4 +1,3 @@
-<?php include 'partials/head.php';?>
 <div class="container">
 <div class="row">
     <div class="col-md-12 text-center">
@@ -29,5 +28,3 @@
     </div>
 </div>
 </div>
-
-<?php include 'partials/foot.php';?>

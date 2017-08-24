@@ -2,6 +2,7 @@
 
 use Core\App;
 use Core\JavaScript;
+use Core\View\View;
 use System\Request;
 
 if(!function_exists('dd'))
@@ -38,10 +39,18 @@ if(!function_exists('makeUrl'))
 
 if(!function_exists('view'))
 {
-    function view($file,$variables = [])
+    function view()
     {
-        extract($variables);
-        return require "app/views/{$file}.view.php";
+        return App::get('view');
+    }
+}
+
+if(!function_exists('section'))
+{
+    function section($__nav)
+    {
+        extract(view()->getVariables());
+        return require "app/views/{$__nav}.view.php";
     }
 }
 

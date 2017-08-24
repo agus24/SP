@@ -1,10 +1,14 @@
 <?php
-error_reporting(0);
-use Core\App;
-use Core\Session;
-use System\Request;
-use System\Route;
+
+/*
+|--------------------------------------------------------------------------
+| Booting Framework dan Deklarasi Instance
+|--------------------------------------------------------------------------
+*/
+
 
 require 'core/bootstrap.php';
-require 'core/helper.php';
+
+use Core\App;
+
 App::run();

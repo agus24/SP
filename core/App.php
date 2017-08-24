@@ -3,9 +3,15 @@
 namespace Core;
 
 use Core\Auth;
+use Core\Interfaces\Provider;
+use Core\Route;
 use Core\Session;
-use System\Route;
+// use System\Route;
 
+/**
+ * App Container Class For Booting And "Things" ?
+ * maybe i can do a lot of improvement here (maybe)
+ */
 class App
 {
     /**
@@ -49,6 +55,11 @@ class App
         throw new Exception("Database Not Configured");
     }
 
+    /**
+     * get config
+     * @param  string $key
+     * @return any
+     */
     public static function config($key)
     {
         return static::$registry['config'][$key];
@@ -62,9 +73,22 @@ class App
         Session::map($_SESSION);
         static::bind('auth', new Auth(Session::get('user')));
         Session::sessionCheck();
-
-        $route = Route::instance(request());
+        Route::init();
         require "app/routes.php";
-        $route->end();
+        Route::run();
+    }
+
+    public static function provider(Provider $provider)
+    {
+        $provider->boot();
+    }
+
+    /**
+     * get View Instance
+     * @return View
+     */
+    public static function view()
+    {
+        return static::$registry['view'];
     }
 }

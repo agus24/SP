@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Model\User;
+use Core\App;
 use Core\Controller;
 
 class LoginController extends Controller
@@ -17,7 +18,10 @@ class LoginController extends Controller
 
     public function index()
     {
-        return view('login');
+        return view()->use('partials/layout')
+                    ->make('nav','partials/nav')
+                    ->make('content','login')
+                    ->render();
     }
 
     public function login()
