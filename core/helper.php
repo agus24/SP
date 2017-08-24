@@ -192,3 +192,14 @@ if(!function_exists('script'))
         return JavaScript::getScript();
     }
 }
+
+/**
+ * Alias dari DB
+ */
+if(!function_exists('db'))
+{
+    function db()
+    {
+        return App::database();
+    }
+}
