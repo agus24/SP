@@ -6,7 +6,7 @@ interface Provider
 {
     /**
      * running the script
-     * @return [type] [description]
+     * @return any
      */
     public function boot();
 }

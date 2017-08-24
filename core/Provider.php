@@ -4,10 +4,20 @@ namespace Core;
 
 use Core\App;
 
-$providerList = require 'app/provider.php';
-
-foreach($providerList as $provider)
+class Provider
 {
-    $prov = "\\App\\Provider\\".$provider;
-    App::provider(new $prov);
+    public static $providers;
+
+    public static function init($provider)
+    {
+        static::$providers = $provider;
+    }
+
+    public static function boot()
+    {
+        foreach(static::$providers as $provider)
+        {
+            App::provider(new $provider);
+        }
+    }
 }

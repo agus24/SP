@@ -6,5 +6,5 @@
  */
 
 return [
-    "ViewProvider"
+    App\Provider\ViewProvider::class
 ];
