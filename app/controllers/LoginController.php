@@ -29,7 +29,7 @@ class LoginController extends Controller
             "password" => "required"
         ];
 
-        if(Validator::instance()->validate($validator,request())) { return back(); }
+        if(Validator::instance()->validate($validate,request())) { return back(); }
 
         $username = request()->body['username'];
         $password = request()->body['password'];
