@@ -37,17 +37,20 @@
                 <div class="panel-heading">Insert New User</div>
                 <div class="panel-body">
                     <form method="POST" action="<?=makeUrl('user')?>">
-                        <div class="form-group">
+                        <div class="form-group <?=isset(session('error')['name'])? "has-error" : "" ?>">
                             <label>Name</label>
                             <input type="text" class="form-control" name="name">
+                            <?=showError('name')?>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group <?=isset(session('error')['username'])? "has-error" : "" ?>">
                             <label>Username</label>
                             <input type="text" class="form-control" name="username">
+                            <?=showError('username')?>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group <?=isset(session('error')['password'])? "has-error" : "" ?>">
                             <label>Password</label>
                             <input type="password" class="form-control" name="password">
+                            <?=showError('password')?>
                         </div>
                         <div class="form-group">
                             <button class="btn btn-primary" type="submit">Submit</button>

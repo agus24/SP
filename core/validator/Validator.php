@@ -13,6 +13,6 @@ class Validator extends ValidatorService
     {
         $this->validation = $validation;
         $this->request = $request->body;
-        $this->serviceRun();
+        return $this->serviceRun();
     }
 }
