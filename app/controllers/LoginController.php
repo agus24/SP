@@ -28,7 +28,7 @@ class LoginController extends Controller
             "username" => "required",
             "password" => "required"
         ];
-        Validator::instance()->validate($validator,request());
+        Validator::instance()->validate($validate,request());
 
         $username = request()->body['username'];
         $password = request()->body['password'];
