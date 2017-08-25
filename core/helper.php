@@ -8,6 +8,7 @@
 
 use Core\App;
 use Core\JavaScript;
+use Core\Session;
 use Core\View\View;
 use System\Request;
 
@@ -207,5 +208,25 @@ if(!function_exists('db'))
     function db()
     {
         return App::database();
+    }
+}
+
+if(!function_exists('session'))
+{
+    function session($key)
+    {
+        return Session::get($key)['value'];
+    }
+}
+
+if(!function_exists('showError'))
+{
+    function showError($key)
+    {
+        if(isset(session('error')[$key]))
+        {
+            return "<p class='help-block'>".session('error')[$key]."</p>";
+        }
+        return '';
     }
 }

@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Model\User;
 use Core\App;
 use Core\Controller;
+use Core\Validator\Validator;
 
 class LoginController extends Controller
 {
@@ -23,8 +24,14 @@ class LoginController extends Controller
 
     public function login()
     {
-        $username = $_POST['username'];
-        $password = $_POST['password'];
+        $validate = [
+            "username" => "required",
+            "password" => "required"
+        ];
+        Validator::instance()->validate($validator,request());
+
+        $username = request()->body['username'];
+        $password = request()->body['password'];
 
         $user = new User;
         $user->checkLogin($username,$password);
@@ -34,10 +41,5 @@ class LoginController extends Controller
     {
         $user = new User;
         $user->logout();
-    }
-
-    public function test()
-    {
-        echo 'a';
     }
 }

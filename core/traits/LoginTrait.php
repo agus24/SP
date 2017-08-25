@@ -3,6 +3,7 @@
 namespace Core\Traits;
 
 use Core\App;
+use Core\Session;
 
 trait LoginTrait
 {
@@ -18,6 +19,9 @@ trait LoginTrait
                 return redirect(App::config('auth')['redirect']['afterLogin']);
             }
         }
+        Session::flash('error',[
+            "__all" => ["Username Or Password is wrong."],
+        ]);
         return back();
     }
 
