@@ -95,6 +95,7 @@ class App
      */
     public static function view()
     {
+        // dd(static::$registry['view']);
         return static::$registry['view'];
     }
 }

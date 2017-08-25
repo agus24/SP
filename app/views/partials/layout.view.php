@@ -6,8 +6,8 @@
     <link rel="stylesheet" type="text/css" href="<?=asset('css/app.css')?>">
 </head>
 <body>
-<?=section(${'nav'});?>
-<?=section(${'content'});?>
+<?php section(${'nav'});?>
+<?php section(${'content'});?>
 <script src="<?=asset('js/app.js')?>"></script>
 <?=script();?>
 </body>

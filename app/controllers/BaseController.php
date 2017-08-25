@@ -30,4 +30,10 @@ class BaseController extends Controller
 
         return back();
     }
+
+    public function delete($id)
+    {
+        User::instance()->delete($id);
+        return back();
+    }
 }
