@@ -9,7 +9,7 @@ return [
     | ingin menempatkan nama aplikasi di notifikasi atau di tempat lain
     | yang diinginkan.
     */
-    'app_name' => "Micro",
+    'app_name' => "SPX",
 
     /*
     |--------------------------------------------------------------------------
@@ -33,6 +33,10 @@ return [
             "afterLogout" => "login"
         ]
     ],
+
+    'timezone' => "Asia/Jakarta",
+
+    'locale' => "id",
 
     /*
     |--------------------------------------------------------------------------

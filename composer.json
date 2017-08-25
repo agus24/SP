@@ -16,8 +16,7 @@
     },
     "require": {
         "nezamy/route": "^1.0",
-        "nesbot/carbon": "^1.22",
-        "mustache/mustache": "~2.5"
+        "nesbot/carbon": "^1.22"
     },
     "require-dev": {
         "phpunit/phpunit": "~5.7"

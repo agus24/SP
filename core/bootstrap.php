@@ -58,6 +58,12 @@ App::bind('database', new QueryBuilder(
 App::bind('view', View::instance());
 
 //--------------------------------------------------------------------------
+// Set PHP Default Timezone
+//--------------------------------------------------------------------------
+date_default_timezone_set(App::config('timezone'));
+setlocale(LC_TIME, App::config('locale'));
+
+//--------------------------------------------------------------------------
 // Menjalankan Service Provider
 //--------------------------------------------------------------------------
 Provider::init(require 'app/provider.php');
