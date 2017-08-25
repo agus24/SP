@@ -4,6 +4,12 @@ namespace Core\Traits;
 
 trait ValidationTrait
 {
+    private function unique($value, $key, $db)
+    {
+        $unique = count(db()->table($db)->where($key,'=',$value)->get()) > 0;
+        return [ 'status' => $unique , 'value' => "Input {$key} allready exists." ];
+    }
+
     private function string($value, $key)
     {
         return [ 'status' => !is_string($value) , 'value' => "Input {$key} Must Be Alphabetical" ];
