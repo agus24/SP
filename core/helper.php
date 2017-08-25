@@ -57,9 +57,15 @@ if(!function_exists('makeUrl'))
  */
 if(!function_exists('view'))
 {
-    function view()
+    function view($bind,$variables = [])
     {
-        return App::view();
+        $sections = explode('.', $bind);
+        $view = App::view()->make($sections[0],$sections[1]);
+        foreach($variables as $key => $value)
+        {
+            $view->share($key,$value);
+        }
+        return $view->render();
     }
 }
 
@@ -70,7 +76,7 @@ if(!function_exists('section'))
 {
     function section($__nav)
     {
-        extract(view()->getVariables());
+        extract(App::view()->getVariables());
         return require "app/views/{$__nav}.view.php";
     }
 }

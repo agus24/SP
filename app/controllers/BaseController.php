@@ -11,13 +11,13 @@ class BaseController extends Controller
     public function index()
     {
         $users = User::instance()->all();
-        return view()->make('content','user')->share("users",$users)->render();
+        return view('content.user', compact('users'));
     }
 
     public function edit($id)
     {
         $user = User::instance()->find($id)->get()[0];
-        return view()->make('content','userEdit')->share('user',$user)->render();
+        return view('content.userEdit',compact('user'));
     }
 
     public function insert()

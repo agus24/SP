@@ -18,7 +18,7 @@ class LoginController extends Controller
 
     public function index()
     {
-        return view()->make('content','login')->render();
+        return view('content.login');
     }
 
     public function login()

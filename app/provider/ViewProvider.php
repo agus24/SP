@@ -2,6 +2,7 @@
 
 namespace App\Provider;
 
+use Core\App;
 use Core\Interfaces\Provider;
 
 class ViewProvider implements Provider
@@ -11,7 +12,7 @@ class ViewProvider implements Provider
      */
     public function boot()
     {
-        view()->extend('partials/layout')
+        App::view()->extend('partials/layout')
             ->make('nav','partials/nav');
     }
 }
