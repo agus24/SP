@@ -188,7 +188,7 @@ class QueryBuilder
      * @param  string $value     value
      * @return QueryBuilder
      */
-    public function where(string $field,string $condition, string $value)
+    public function where($field,$condition, $value)
     {
         if($this->condition == '')
         {
@@ -208,7 +208,7 @@ class QueryBuilder
      * @param  any $value
      * @return QueryBuilder
      */
-    public function orwhere(string $field,string $condition,string $value)
+    public function orwhere($field,$condition,$value)
     {
         if($this->condition != '')
         {
@@ -222,7 +222,7 @@ class QueryBuilder
      * @param  string $field
      * @return QueryBuilder
      */
-    public function groupby(string $field)
+    public function groupby($field)
     {
         if($this->groupby == '')
         {
@@ -242,7 +242,7 @@ class QueryBuilder
      * @param  string $state tipenya
      * @return QueryBuilder
      */
-    public function orderby(string $field,$state = 'ASC')
+    public function orderby($field,$state = 'ASC')
     {
         if($this->orderby == '')
         {
@@ -261,7 +261,7 @@ class QueryBuilder
      * @param  string $table
      * @return QueryBuilder
      */
-    public function table(string $table)
+    public function table($table)
     {
         $this->table = $table;
         return $this;
@@ -275,7 +275,7 @@ class QueryBuilder
      * @param  string $field2
      * @return QueryBuilder
      */
-    public function join(string $table, string $field, string $condition, string $field2)
+    public function join($table, $field, $condition, $field2)
     {
         $this->join .= " INNER JOIN {$table} on {$field}{$condition}{$field2}";
         return $this;
@@ -289,7 +289,7 @@ class QueryBuilder
      * @param  string $field2
      * @return QueryBuilder
      */
-    public function leftJoin(string $table, string $field, string $condition, string $field2)
+    public function leftJoin($table, $field, $condition, $field2)
     {
         $this->join .= " LEFT JOIN {$table} on {$field}{$condition}{$field2}";
         return $this;
@@ -303,7 +303,7 @@ class QueryBuilder
      * @param  string $field2
      * @return QueryBuilder
      */
-    public function rightJoin(string $table, string $field, string $condition, string $field2)
+    public function rightJoin($table, $field, $condition, $field2)
     {
         $this->join .= " RIGHT JOIN {$table} on {$field}{$condition}{$field2}";
         return $this;

@@ -18,10 +18,7 @@ class LoginController extends Controller
 
     public function index()
     {
-        return view()->extend('partials/layout')
-                    ->make('nav','partials/nav')
-                    ->make('content','login')
-                    ->render();
+        return view()->make('content','login')->render();
     }
 
     public function login()

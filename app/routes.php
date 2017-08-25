@@ -8,4 +8,5 @@ Route::post('/login', '\App\Controllers\LoginController@login');
 Route::get('/logout', '\App\Controllers\LoginController@logout');
 
 Route::get('/user', '\App\Controllers\BaseController@index');
+Route::post('/user', '\App\Controllers\BaseController@insert');
 Route::get('/user/{id}/edit', '\App\Controllers\BaseController@edit');
