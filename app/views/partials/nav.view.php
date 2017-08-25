@@ -15,7 +15,9 @@
         <div class="collapse navbar-collapse" id="app-navbar-collapse">
             <!-- Left Side Of Navbar -->
             <ul class="nav navbar-nav">
+                <?php if(!auth()->guest()) : ?>
                 <li><a href="<?=makeUrl('user')?>">User</a></li>
+                <?php endif; ?>
             </ul>
 
             <!-- Right Side Of Navbar -->
