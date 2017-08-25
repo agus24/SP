@@ -11,4 +11,6 @@ class User extends Model
 
     protected $table = 'user';
     protected $primaryKey = 'id';
+
+    protected $timeStamp = true;
 }

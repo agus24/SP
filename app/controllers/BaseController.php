@@ -11,7 +11,7 @@ class BaseController extends Controller
     public function index()
     {
         $users = User::instance()->all();
-        return view()->use('partials/layout')
+        return view()->extend('partials/layout')
                     ->make('nav','partials/nav')
                     ->make('content','user')
                     ->share("users",$users)

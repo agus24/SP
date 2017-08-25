@@ -30,6 +30,12 @@ class Model
     protected $db;
 
     /**
+     * Variabel untuk mendisable timestamp
+     * @var boolean
+     */
+    protected $timeStamp = true;
+
+    /**
      * Primarykey dari model.
      * @var string
      */
@@ -69,6 +75,7 @@ class Model
      */
     public function create($param)
     {
+        if($this->timeStamp) { array_push($param, ["created_time" => date('Y-m-d h:i:s')]); }
         $compiled = $this->db->insert($param);
         $this->lastID = $compiled->lastInsertId();
         return $this;
@@ -81,6 +88,7 @@ class Model
      */
     public function update($param,$id)
     {
+        if($this->timeStamp) { array_push($param, ["updated_time" => date('Y-m-d h:i:s')]); }
         $this->db->where($this->primaryKey,'=',$id)->update($param);
     }
 

@@ -13,7 +13,7 @@ class View
         return new self;
     }
 
-    public function use($base)
+    public function extend($base)
     {
         $this->base = $base;
         return $this;
