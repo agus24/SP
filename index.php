@@ -7,7 +7,7 @@
 */
 
 
-require 'core/bootstrap.php';
+require 'boot/bootstrap.php';
 
 use Core\App;
 
