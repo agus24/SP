@@ -46,7 +46,14 @@ class Model
      */
     public function __construct()
     {
-        $this->db = App::database()->table($this->table);
+        if(App::database()->tableExist($this->table))
+        {
+            $this->db = App::database()->table($this->table);
+        }
+        else
+        {
+            throw new \Exception("Table {$this->table} Not Found in Database");
+        }
     }
 
     /**

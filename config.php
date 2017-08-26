@@ -29,7 +29,7 @@ return [
     */
     'auth' => [
         "redirect" => [
-            "afterLogin" => "user",
+            "afterLogin" => "dashboard",
             "afterLogout" => "login"
         ]
     ],

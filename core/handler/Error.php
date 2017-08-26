@@ -5,34 +5,37 @@ register_shutdown_function("shutdownHandler");
 
 function errorHandler($error_level, $error_message, $error_file, $error_line, $error_context)
 {
+    $tipe = "";
     $error = "lvl: " . $error_level . " | msg:" . $error_message . " | file:" . $error_file . " | line:" . $error_line;
     switch ($error_level) {
         case E_ERROR:
         case E_CORE_ERROR:
         case E_COMPILE_ERROR:
         case E_PARSE:
-            mylog($error, "FATAL!!",$error_message);
+            $tipe = "FATAL!!";
             break;
         case E_USER_ERROR:
         case E_RECOVERABLE_ERROR:
-            mylog($error, "ERROR!!",$error_message);
+            $tipe = "ERROR!!";
             break;
         case E_WARNING:
         case E_CORE_WARNING:
         case E_COMPILE_WARNING:
         case E_USER_WARNING:
-            mylog($error, "WARNING!",$error_message);
+            $tipe = "WARNING!";
             break;
         case E_NOTICE:
         case E_USER_NOTICE:
-            mylog($error, "INFO",$error_message);
+            $tipe = "INFO";
             break;
         case E_STRICT:
-            mylog($error, "DEBUG",$error_message);
+            $tipe = "DEBUG";
             break;
         default:
-            mylog($error, "WARNING!",$error_message);
+            $tipe = "WARNING!";
     }
+
+    mylog($error, $tipe,$error_message);
 }
 
 function shutdownHandler()
@@ -48,12 +51,18 @@ function shutdownHandler()
         case E_CORE_WARNING:
         case E_COMPILE_WARNING:
         case E_PARSE:
-            $error = "[SHUTDOWN] lvl:" . $lasterror['type'] . " | msg:" . $lasterror['message'] . " | file:" . $lasterror['file'] . " | line:" . $lasterror['line'];
-            mylog($error, "FATAL!",$lasterror['message']);
+            mylog($lasterror, "FATAL!",_parseMessage($lasterror['message']));
     }
 }
 
-function mylog($error, $errlvl,$msg)
+function mylog($error, $errlvl, $message)
 {
     die(require "error.view.php");
+}
+
+function _parseMessage($lasterror)
+{
+    $lasterror = implode("<br><i>Stack trace :",explode("Stack trace:", $lasterror));
+    $error = explode("#", $lasterror);
+    return implode("</span><br><span style='margin-left:2%'>#", $error)."</span>";
 }

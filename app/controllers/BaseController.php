@@ -11,7 +11,6 @@ class BaseController extends Controller
 {
     public function index()
     {
-        $users = User::instance()->all();
-        return view('content.user', compact('users'));
+        return view('content.home');
     }
 }

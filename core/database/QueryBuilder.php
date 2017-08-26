@@ -78,6 +78,18 @@ class QueryBuilder
         $this->fetchMode = \PDO::FETCH_CLASS;
     }
 
+    public function raw($statement)
+    {
+        $this->statement = $statement;
+        return $this->get();
+    }
+
+    public function tableExist($table)
+    {
+        $this->statement = sprintf("SHOW TABLES LIKE '%s'",$table);
+        return count($this->get()) > 0;
+    }
+
     /**
      * bwt jalanin select
      * @return obj hasil query bentuk object/class

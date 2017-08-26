@@ -25,6 +25,7 @@ class LoginController extends Controller
      */
     public function index()
     {
+        $user = new User;
         return view('content.login');
     }
 
