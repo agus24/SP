@@ -9,6 +9,9 @@ use Core\Validator\Validator;
 
 class LoginController extends Controller
 {
+    /**
+     * Jika user sudah login maka akan diarahkan ke halaman berikutnya.
+     */
     public function __construct()
     {
         if(!auth()->guest())
@@ -17,11 +20,17 @@ class LoginController extends Controller
         }
     }
 
+    /**
+     * untuk memanggil view yang akan digunakan untuk user login
+     */
     public function index()
     {
         return view('content.login');
     }
 
+    /**
+     * untuk melakukan proses login
+     */
     public function login()
     {
         $validate = [
@@ -38,6 +47,9 @@ class LoginController extends Controller
         $user->checkLogin($username,$password);
     }
 
+    /**
+     * Untuk Melakukan logout
+     */
     public function logOut()
     {
         $user = new User;

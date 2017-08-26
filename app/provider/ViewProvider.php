@@ -3,7 +3,7 @@
 namespace App\Provider;
 
 use Core\App;
-use Core\Interfaces\Provider;
+use Core\Contract\Provider;
 
 class ViewProvider implements Provider
 {

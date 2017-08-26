@@ -1,6 +1,6 @@
 <?php
 
-namespace Core\Interfaces;
+namespace Core\Contract;
 
 interface Provider
 {

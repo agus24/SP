@@ -9,7 +9,7 @@
 namespace Core;
 
 use Core\Auth;
-use Core\Interfaces\Provider;
+use Core\Contract\Provider;
 use Core\Route;
 use Core\Session;
 
@@ -95,7 +95,8 @@ class App
      */
     public static function view()
     {
-        // dd(static::$registry['view']);
         return static::$registry['view'];
+
+        throw new Exception("View Not Configured");
     }
 }
